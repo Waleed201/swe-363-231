@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta name="description" content="هذا الموقع مخصص لبيع أفضل الأحذية في العالم بأفضل الأسعار" />
+    <meta name="keywords" content="أحذية, متجر, رياضة, أحذية رياضية" />
+    <meta name="author" content="وليد الزهراني" />
+    <meta name="viewport" content="width=device-width">
+
+
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Shoo Shope</title>
+</head>
+
+<body dir="rtl">
+    <header>
+        <h1>Shoo Shope</h1>
+        <nav id="main-nav">
+            <ul>
+                <li id="menu-icon">&#9776;</li>
+                <li><a href="../public/special-order.html">تخصيص</a></li>
+                <li><a href="index-ar.html">الصفحة الرئيسية</a></li>
+                <li><a href="#aboutUs">من نحن</a></li>
+                <li><a href="../public/contact-us.html">اتصل بنا</a></li>
+                <li><a href="../index.html">English</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <figure>
+            <img class="main-img" src="../image/20230809_hp_running_shoes_men.png" alt="رجل يجري بواسطة أحذية رياضية"
+                width="1000">
+        </figure>
+
+        <article id="aboutUs">
+            <h2>ما هو متجر Shoo:</h2>
+            <p>
+                متجر الأحذية هو وجهتك الرئيسية لكل ما يتعلق بالأحذية. نحن متخصصون في
+                اختيار مجموعة متنوعة وأنيقة من الأحذية لتناسب كل مناسبة،
+                ذوق، وميزانية. سواء كنت تبحث عن الراحة العارضة، أو ملابس رسمية أنيقة،
+                أو أحذية رياضية عصرية، أو معدات المغامرات في الهواء الطلق، فإن متجر
+                الأحذية لدينا يغطي جميع احتياجاتك. مع التزامنا بالجودة والراحة
+                والاقتصاد، نحن هنا لمساعدتك في العثور على الزوج المثالي لتظهر
+                بأفضل طريقة. استكشف تشكيلتنا اليوم وانطلق بأفضل حذاء مع متجر الأحذية!
+            </p>
+        </article>
+
+        <hr>
+
+        <h3>موديلات جديدة</h3>
+        <section class="shoes-container">
+            <span class="shoes-card">
+                <a href="../public/mans-brooks.html"><img src="../image/Screenshot-removebg-preview.png" alt="أحذية">
+                    <br><b>أحذية رجالية من بروكس</b> </a>
+            </span>
+            <span class="shoes-card">
+                <a href="../public/mens-asics.html"><img src="../image/Screenshot-removebg-preview (2).png" alt="أحذية">
+                    <br>
+                    <div><b>أحذية رجالية من آسيكس</b></div>
+                </a>
+            </span>
+            <span class="shoes-card">
+                <a href="../public/mens-hoka.html"><img src="../image/Screenshot-removebg-preview (1).png" alt="أحذية">
+                    <br>
+                    <div><b>أحذية رجالية من هوكا</b></div>
+                </a>
+            </span>
+            <span class="shoes-card">
+                <a href="../public/mens-running-shoes.html"><img
+                        src="../image/CG-120-G-FULLBLK-2.jpg-removebg-preview.png" alt="أحذية">
+                    <br>
+                    <div><b>أحذية رياضية TYSON Pro</b></div>
+                </a>
+            </span>
+        </section>
+        <br>
+        <hr>
+    </main>
+
+    <footer>
+        <address>
+            <p>اتصل بنا على البريد الإلكتروني: <a href="mailto:s201927310@kfupm.edu.sa">s201927310@kfupm.edu.sa</a></p>
+        </address>
+
+        <p>&copy; 2023 متجر الأحذية. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuIcon = document.getElementById('menu-icon');
+            const navLinks = document.querySelector('nav ul');
+            const navItems = document.querySelectorAll('nav ul li');
+
+            menuIcon.addEventListener('click', function () {
+                // Toggle the 'active' class to control visibility
+                navLinks.classList.toggle('active');
+
+                if (navLinks.classList.contains('active')) {
+                    // Apply animation delay to individual li elements
+                    navItems.forEach((item, index) => {
+                        item.style.transitionDelay = `${index * 0.1}s`; // Adjust the delay as needed
+                    });
+                } else {
+                    // Reset animation delay when closing the menu
+                    navItems.forEach(item => {
+                        item.style.transitionDelay = '0s';
+                    });
+                }
+            });
+
+
+
+            const shoesCards = document.querySelectorAll('.shoes-card');
+
+            shoesCards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    const cardLinks = card.querySelectorAll('a')
+                    const cardImg = card.querySelector('img')
+                    cardLinks.forEach(link => {
+                        link.classList.add('active')
+                    });
+                    cardImg.classList.add('active')
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    const cardLinks = card.querySelectorAll('a');
+                    const cardImg = card.querySelector('img')
+                    cardLinks.forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    cardImg.classList.remove('active')
+                });
+            });
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>
