@@ -1,0 +1,177 @@
+@font-face {
+    font-family: 'Monument-Extended';
+    src: url('./font/MonumentExtended-Regular.otf') format('opentype'),
+         url('./font/MonumentExtended-Ultrabold.otf') format('opentype');
+    /* Add additional formats if needed */
+    font-weight:100;
+    font-style:100;
+  }
+
+body {
+    font-family:'Monument-Extended';
+    width: 100%;
+    font-size: 10px;
+    color: #808080;
+    background-color: #ececec;
+}
+
+a{
+    text-decoration: none;
+    color: #000000;
+
+}
+
+header{
+    background-color: #040404;
+    text-align: center;
+    color: #ececec;
+    padding: 5px 5px;
+}
+
+header h1{
+    color: #E5F33C;
+    font-size: 35px;
+    font-weight:800;
+}
+
+header  a{
+    color: #ebedef;
+    transition: 0.1s;
+}
+
+/*
+nav ul {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; 
+
+}
+*/
+
+#main-nav ul {
+    display: flex;
+    opacity: 1;
+    flex-direction: row;
+    justify-content:flex-start;
+    max-width: 100%;
+    margin: 10px 0px;
+    padding: 0;
+    gap: 10px;
+    margin-bottom: 0;
+    flex-wrap: wrap;
+    transition: 0.3s;
+}
+
+
+
+#main-nav #menu-icon{
+    display: inline;
+    font-size: 20px;
+    opacity: 1;
+    color: #6b6b6b;
+}
+
+#main-nav ul li {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    padding: 10px 10px;
+    border-radius: 15px;
+    transition: 0.3s;
+    font-size: 0.6rem; 
+}
+
+#main-nav ul.active li{
+    display: inline;
+    opacity: 1; 
+}
+
+
+
+/* Show the navigation links on hover 
+.hamburger-menu:hover + nav ul {
+    display: block;
+}
+*/
+/* Style the hamburger icon 
+.hamburger-menu {
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}*/
+
+
+li:hover{
+    background-color: #ececec;
+    border-radius: 15px;
+}
+li:hover a{
+    color:#363636 ;
+}
+
+
+.main-img{
+    width: 100%;
+}
+
+figure{
+    margin: 16px 0px;
+}
+
+.line{
+    border: solid #E5F33C;
+    border:10px 5px;
+    padding: 0px;
+    width: 100%; /* Adjust the width and height of the container as needed */
+    height: 40px;
+    background-image: url('./image/line.jpeg'); /* Replace 'your-image.jpg' with the URL of your image */
+    background-repeat: repeat; /* Repeat the image horizontally and vertically */
+    background-size: 60px; /* Keep the original image size */
+}
+
+.shoes-container{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    overflow:hidden;
+    justify-content: center;
+    
+}
+
+
+.shoes-container .shoes-card{
+    display: inline-block;
+    border: 3px solid black;
+    border-radius: 30px;
+    flex: 0 1 150px;
+    padding: 10px;
+    height: 200px;
+    transition: 0.9s;
+}
+
+.shoes-container .shoes-card:hover {
+    background-image: url('./image/line.jpeg'); /* Replace 'your-image.jpg' with the URL of your image */
+    background-repeat: repeat; /* Repeat the image horizontally and vertically */
+    background-size: 60px; /* Keep the original image size */
+    color: #ececec;
+}
+
+.shoes-card  a.active{
+    color: #ececec;
+
+}
+
+
+
+.shoes-container img{
+    border-bottom: 3px solid black;
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+    transform: 2s;
+}
+
+.shoes-container img.active{
+    border-bottom: 3px solid #ececec;
+}
+

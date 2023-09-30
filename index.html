@@ -5,8 +5,9 @@
     <meta name="description" content="this web is for Selling the best shoes is over the world with the best price" />
     <meta name="keywords" content="shoes, shop, sport, sport shoes" />
     <meta name="author" content="Waleed AlZahrani" />
+    <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="./DarkMode.css">
+    <link rel="stylesheet" href="./style.css">
 
     <title>Shoo Shope</title>
 </head>
@@ -14,23 +15,25 @@
 <body>
     <header>
         <h1>Shoo Shop</h1>
-        <nav>
+        <!-- <div class="hamburger-menu">&#9776;</div> -->
+        <nav id="main-nav">
             <ul>
-                <li><a href="./public/Apple.html">
-                        <h4>Apple's Table</h4>
-                    </a></li>
-                <li><a href="./public/special-order.html">
-                        <h4>special customisation shoe</h4>
-                    </a><br> </li>
+                <li id="menu-icon">&#9776;</li>
+                <li><a href="./public/special-order.html">customise</a> </li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#aboutUs">About us</a></li>
+                <li><a href="./public/contact-us.html">Contact</a></li>
+                <li><a href="./public/index-ar.html">العربية</a> </li>
             </ul>
         </nav>
     </header>
     <main>
         <figure>
-            <img src="./image/20230809_hp_running_shoes_men.png" alt="man runing by sport shoes" width="1000">
+            <img class="main-img" src="./image/20230809_hp_running_shoes_men.png" alt="man runing by sport shoes"
+                width="1000">
         </figure>
 
-        <article id="aboutUs" style="border: 3px solid black; padding: 1px 20px ;">
+        <article id="aboutUs">
             <h2>What is shoo Shop:</h2>
             <p>
                 Shoo Shop is your go-to destination for all things footwear. We specialize in
@@ -45,89 +48,107 @@
 
 
         <hr>
+        <div class="line"></div>
 
+        
         <h3>New Models</h3>
-        <section>
-            <span>
-                <a href="./public/mans-brooks.html"><img src="./image/42441-025.webp" width="300" alt="shoes">
-                <br><div><b>Mans Brooks</b></div> </a>
+        <section class="shoes-container">
+            <span  class="shoes-card">
+                <a href="./public/mans-brooks.html"><img src="./image/Screenshot-removebg-preview.png" alt="shoes">
+                    <br><b>Mans Brooks</b> </a>
             </span>
-            <span>
-                <a href="./public/mens-asics.html"><img src="./image/43232-440.webp" width="300" alt="shoes">
-                <br><div><b>Mens Asics</b></div></a>
+            <span class="shoes-card">
+                <a href="./public/mens-asics.html"><img src="./image/Screenshot-removebg-preview (2).png" alt="shoes">
+                    <br>
+                    <div><b>Mens Asics</b></div>
+                </a>
             </span>
-            <span>
-                <a href="./public/mens-hoka.html"><img src="./image/43267-800.webp" width="300" alt="shoes">
-                <br><div><b>Men Hoke</b></div></a>
+            <span class="shoes-card">
+                <a href="./public/mens-hoka.html"><img src="./image/Screenshot-removebg-preview (1).png" alt="shoes">
+                    <br>
+                    <div><b>Men Hoke</b></div>
+                </a>
             </span>
-            <span>
-                <a href="./public/mens-running-shoes.html"><img src="./image/CG-120-G-FULLBLK-2.jpg.jpeg" width="280" alt="shoes">
-                <br><div><b>TYSON Pro</b></div></a>
+            <span class="shoes-card">
+                <a href="./public/mens-running-shoes.html"><img
+                        src="./image/CG-120-G-FULLBLK-2.jpg-removebg-preview.png" alt="shoes">
+                    <br>
+                    <div><b>TYSON Pro</b></div>
+                </a>
             </span>
         </section>
         <br>
         <hr>
 
 
-        <table border="1">
-
-            <thead>
-                <th colspan="4">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; comparing our pest
-                    prodact &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                </th>
-            </thead>
-            <tr>
-                <td>shoes&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
-                <td>wight&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    &nbsp; &nbsp; </td>
-                <td>Midsole Drop</td>
-                <td>Perfect For</td>
-            </tr>
-            <tr>
-                <td>brooks</td>
-                <td>9.8 ounces</td>
-                <td>Your Ghost 15 has a heel to toe drop of 12 mm.</td>
-                <td>Middle and long-distance running on the road, paved trails, and the track.</td>
-            </tr>
-            <tr>
-                <td>asics</td>
-                <td>10.2 ounces</td>
-                <td>Your ASICS GEL-Nimbus 25 has a heel to toe drop of 8 mm.</td>
-                <td>Everyday running and training for both long and mid distance.</td>
-            </tr>
-            <tr>
-                <td>hoka</td>
-                <td>8.7 ounces</td>
-                <td>Your HOKA Clifton 9 has a heel to toe drop of 5 mm.</td>
-                <td>Long distance running, shorter runs and everyday training on roads and paved trails.</td>
-            </tr>
-        </table>
     </main>
 
 
-    <br>
-    <hr>
 
 
 
 
 
     <footer>
-
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#aboutUs">About us</a></li>
-                <li><a href="./public/contact-us.html">Contact</a></li>
-            </ul>
-        </nav>
-
         <address>
             <p>Contact us at: <a href="mailto:s201927310@kfupm.edu.sa">s201927310@kfupm.edu.sa</a></p>
         </address>
 
         <p>&copy; 2023 Shoo Shope. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuIcon = document.getElementById('menu-icon');
+            const navLinks = document.querySelector('nav ul');
+            const navItems = document.querySelectorAll('nav ul li');
+
+            menuIcon.addEventListener('click', function () {
+                // Toggle the 'active' class to control visibility
+                navLinks.classList.toggle('active');
+
+                if (navLinks.classList.contains('active')) {
+                    // Apply animation delay to individual li elements
+                    navItems.forEach((item, index) => {
+                        item.style.transitionDelay = `${index * 0.1}s`; // Adjust the delay as needed
+                    });
+                } else {
+                    // Reset animation delay when closing the menu
+                    navItems.forEach(item => {
+                        item.style.transitionDelay = '0s';
+                    });
+                }
+            });
+
+
+
+            const shoesCards = document.querySelectorAll('.shoes-card');
+
+            shoesCards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    const cardLinks = card.querySelectorAll('a')
+                    const cardImg = card.querySelector('img')
+                    cardLinks.forEach(link => {
+                        link.classList.add('active')
+                    });
+                    cardImg.classList.add('active')
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    const cardLinks = card.querySelectorAll('a');
+                    const cardImg = card.querySelector('img')
+                    cardLinks.forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    cardImg.classList.remove('active')
+                });
+            });
+
+        });
+
+
+
+    </script>
 </body>
 
 </html>
