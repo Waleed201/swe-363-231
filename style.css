@@ -66,13 +66,15 @@ nav ul {
 
 #main-nav #menu-icon{
     display: inline;
+    pointer-events:auto;
     font-size: 20px;
     opacity: 1;
     color: #6b6b6b;
 }
 
 #main-nav ul li {
-    display: none;
+    display: inline;
+    pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     padding: 10px 10px;
@@ -82,7 +84,7 @@ nav ul {
 }
 
 #main-nav ul.active li{
-    display: inline;
+    pointer-events:auto;
     opacity: 1; 
 }
 
