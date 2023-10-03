@@ -15,10 +15,11 @@ body {
     background-color: #ececec;
 }
 
+
 a{
     text-decoration: none;
+    font-size:7px ;
     color: #000000;
-
 }
 
 header{
@@ -119,7 +120,7 @@ li:hover a{
 }
 
 figure{
-    margin: 16px 0px;
+    margin: 1px 0px;
     position: relative;
 }
 
@@ -133,14 +134,13 @@ figure{
 }
 
 .line{
-    border: solid #E5F33C;
-    border:10px 5px;
-    padding: 0px;
     width: 100%; /* Adjust the width and height of the container as needed */
     height: 40px;
     background-image: url('./image/line.jpeg'); /* Replace 'your-image.jpg' with the URL of your image */
     background-repeat: repeat; /* Repeat the image horizontally and vertically */
+    background-attachment: fixed;
     background-size: 60px; /* Keep the original image size */
+    margin: 0 0px;
 }
 
 .shoes-container{
@@ -149,7 +149,7 @@ figure{
     display: flex;
     flex-wrap: wrap;
     overflow:hidden;
-    justify-content: center;
+    justify-content: space-evenly;
     
 }
 
@@ -195,3 +195,24 @@ figure{
     border-bottom: 3px solid #ececec;
 }
 
+@media screen and (min-width: 769px) {
+    body{
+        font-size: 13px;
+        margin: 0;
+    }
+    
+    article{
+        padding:3px 7px;
+    }
+    
+    .shoes-container .shoes-card{
+        border-radius: 30px;
+        flex: 0 1 250px;
+        padding: 10px;
+        height: 200px;
+        transition: 0.3s;
+    }
+
+
+
+  }
