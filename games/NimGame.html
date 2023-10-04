@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nim Game</title>
+
+    <style>
+        body {
+            text-align: center;
+            background-color: #140946;
+        }
+
+        header {
+            color: aliceblue;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 80px;
+            text-shadow: 1px 1px 59px #81e4e6;
+            margin-bottom: 50px;
+
+        }
+
+        .contaner {
+            background-color: rgb(1, 24, 37);
+            margin: auto;
+            width: 95%;
+            aspect-ratio: 3 / 2;
+            border: 3px solid rgb(78, 152, 189);
+            padding: 10px;
+            border-radius: 10px;
+
+        }
+
+        .roow {
+            display: flex;
+            height: 100px;
+            margin: 1%;
+            background-color: rgb(10, 3, 41);
+            border-radius: 5px;
+            justify-content: center;
+        }
+
+        .circle {
+            pointer-events: fill;
+            flex-shrink: 1;
+            height: 80px;
+            aspect-ratio: 2 / 2;
+            background-color: rgba(20, 20, 180, 0.796);
+            border-radius: 50%;
+            margin: 10px;
+            border: 1px solid rgb(79, 119, 128);
+        }
+
+        .reset {
+            height: 50px;
+            width: 200px;
+            margin: auto;
+            text-shadow: 0px 0px 20px black;
+            font-size: 30px;
+            background-color: #0a4344;
+            border-radius: 9px;
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Nim Game </h1>
+    </header>
+    <div class="contaner">
+        <div class="roow">
+            <div class="circle"></div>
+        </div>
+        <div class="roow">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+        <div class="roow">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+
+        </div>
+        <div class="roow">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+
+        </div>
+        <div class="reset">
+            reset
+        </div>
+    </div>
+
+
+    <script>
+        let circles = document.getElementsByClassName("circle")
+        let reset = document.getElementsByClassName("reset")[0]
+
+        for (let i = 0; i < circles.length; i++) {
+            circles[i].addEventListener("click", circleClicked)
+
+            if (circles[i].style.opacity != 0) {
+                circles[i].addEventListener('mouseover', function handleMouseOver() {
+                    circles[i].style.opacity = 0.7;
+                });
+
+                circles[i].addEventListener('mouseout', function handleMouseOut() {
+                    circles[i].style.opacity = 1;
+                });
+
+            }
+
+        }
+
+        function circleClicked(event) {
+            circle1 = event.target
+            circle1.style.opacity = 0
+        }
+
+        reset.addEventListener("click", resetClicked)
+
+        function resetClicked(event) {
+            for (let i = 0; i < circles.length; i++) {
+                circles[i].style.opacity = 1
+            }
+        }
+
+    </script>
+</body>
+
+</html>
