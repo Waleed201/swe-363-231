@@ -17,6 +17,7 @@
 
         h1 {
             margin-bottom: 0px;
+            text-align: center;
         }
 
         .cell {
@@ -34,8 +35,13 @@
             align-items: center;
         }
 
-        .cell:hover,.selected {
+        .cell:hover,
+        .selected {
             background-color: blanchedalmond;
+        }
+
+        .cell + .winning-cell{
+            background-color: #78f67e;
         }
 
         .grid {
@@ -46,18 +52,30 @@
         code {
             color: blueviolet;
         }
+
+        #reset{
+            height: 30px;
+            width: 300px;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            border: 1px solid rgb(0, 0, 0);
+            background-color: rgb(241, 238, 197);
+        }
     </style>
 </head>
 
 <body>
     <h1 id="turn">
-        Now it's is <span>X</span> turn
+        Now it's <span>X</span>'s turn
+        <br><span> </span>
     </h1>
     <p>Use <code>Space</code> to select & <code>Arrows</code> to move</p>
     <!-- Board -->
     <div class="board">
         <div class="grid">
-            <div class="cell selected"></div>
+            <div class="cell"></div>
             <div class="cell"></div>
             <div class="cell"></div>
             <div class="cell"></div>
@@ -67,40 +85,95 @@
             <div class="cell"></div>
             <div class="cell"></div>
         </div>
-        <script>
+    </div>
+    <button id="reset">Reset Game</button>
 
-            // decided which turn is it
-            let turn = "X"
-            let gameEnded = false
+    <script>
+        let turn = "X";
+        let gameEnded = false;
+        let cells = document.querySelectorAll(".cell");
+        let winner = null;
 
-            // when we click on a cell add the letter 
-            let board = document.getElementsByClassName("board")[0]
-            board.addEventListener("click", cellClicked)
+        function initializeGame() {
+            turn = "X";
+            gameEnded = false;
+            winner = null;
+            document.querySelectorAll("#turn span")[1].innerText = '';
+            cells.forEach(cell => {
+                cell.innerText = "";
+                cell.classList.remove("selected");
+                cell.removeEventListener("click", cellClicked);
+                cell.addEventListener("click", cellClicked);
+            });
+            updateTurnDisplay();
+        }
 
-            // clicked event
-            function cellClicked(event) {
-                let cell = event.target
-                addLetter(cell)
-            }
-
-            //add letter
-            function addLetter(cell) {
-                cell.innerText = turn
-                if (gameEnded) {
-                    // HW 
-                } else {
-                    // change turn
-                    turn = turn === "X" ? "O" : "X"
-
-                    //change title
-                    turnLetter = document.querySelector("#turn span")
-                    turnLetter.innerText = turn
+        function cellClicked(event) {
+            let cell = event.target;
+            if (!gameEnded && cell.innerText === "") {
+                addLetter(cell);
+                checkWinner();
+                if (!gameEnded) {
+                    toggleTurn();
+                    updateTurnDisplay();
                 }
             }
-            
+        }
 
-        </script>
-    </div>
+        function addLetter(cell) {
+            cell.innerText = turn;
+            cell.classList.add("selected");
+        }
+
+        function toggleTurn() {
+            turn = turn === "X" ? "O" : "X";
+        }
+
+        function updateTurnDisplay() {
+            document.querySelector("#turn span").innerText = turn;
+        }
+
+        function checkWinner() {
+            const winningCombinations = [
+                [0, 1, 2],
+                [3, 4, 5],
+                [6, 7, 8],
+                [0, 3, 6],
+                [1, 4, 7],
+                [2, 5, 8],
+                [0, 4, 8],
+                [2, 4, 6]
+            ];
+
+            for (const combination of winningCombinations) {
+                const [a, b, c] = combination;
+                if (cells[a].innerText && cells[a].innerText === cells[b].innerText && cells[a].innerText === cells[c].innerText) {
+                    gameEnded = true;
+                    winner = turn;
+                    cells[a].classList.add("winning-cell");
+                    cells[b].classList.add("winning-cell");
+                    cells[c].classList.add("winning-cell");
+                    document.querySelectorAll("#turn span")[1].innerText = winner + " wins!";
+                    document.querySelectorAll("#turn span")[1].style.color = "green"
+                    document.querySelectorAll("#turn span")[1].style.fontSize = "40px"
+
+                    break;
+                }
+            }
+
+            // Check for a draw (all cells filled with no winner)
+            if (!winner && Array.from(cells).every(cell => cell.innerText !== "")) {
+                gameEnded = true;
+                document.querySelectorAll("#turn span")[1].innerText = "Draw!";
+            }
+        }
+
+        // Reset the game
+        document.getElementById("reset").addEventListener("click", initializeGame);
+
+        // Initialize the game when the page loads
+        initializeGame();
+    </script>
 </body>
 
 </html>
