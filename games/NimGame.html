@@ -10,6 +10,12 @@
         body {
             text-align: center;
             background-color: #140946;
+            margin-bottom: 0;
+            color: aliceblue;
+        }
+
+        .try{
+            color: #772b2b;
         }
 
         header {
@@ -24,46 +30,123 @@
 
         }
 
+        .inter {
+            width: 100%;
+            height: 100px;
+            font-size: xx-large;
+            color: aliceblue;
+        }
+
+        .prev {}
+
+        .resolt {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 100px;
+        }
+
+        .resolt div{
+            margin-top: 10px;
+            height: 40px;
+            width: 200px;
+            background-color: #3c329150;
+            border-radius: 10px;
+            border: 2px solid #004f8b;
+            border-color: #3e803e;
+            box-shadow : 0px 0px 30px rgb(0, 180, 0);
+        }        
+
+        .input-div {
+            display: flex;
+            justify-content: space-around;
+            align-content: center;
+            flex-wrap: wrap;
+            height: 100px;
+            font-size: xx-large;
+            color: aliceblue;
+        }
+
+        .input-div div {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin: 5px;
+        }
+
+        .input-div input {
+            height: 29px;
+            width: 200px;
+            background-color: #3b16e133;
+            border-radius: 10px;
+            border-color: #0a4344;
+            box-shadow: 0px 0px 10px #81e4e6;
+            color: aliceblue;
+            font-size: 18px;
+            text-align: center;
+            margin-left: 10px;
+        }
+
         .contaner {
             background-color: rgb(1, 24, 37);
             margin: auto;
             width: 95%;
             aspect-ratio: 3 / 2;
-            border: 3px solid rgb(78, 152, 189);
+            border: 3px solid #487e9ac6;
             padding: 10px;
-            border-radius: 10px;
+            border-radius: 10px 10px 1px 1px;
+            box-shadow: 0px 0px 60px #81e4e6;
+            margin-top: 2em;
+            border-bottom: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
 
         }
 
         .roow {
             display: flex;
-            height: 100px;
+            height: 13vw;
+            max-height: 100px;
             margin: 1%;
             background-color: rgb(10, 3, 41);
             border-radius: 5px;
             justify-content: center;
+            align-content: center;
         }
 
         .circle {
-            pointer-events: fill;
+            pointer-events: none;
+            opacity: 0.3;
             flex-shrink: 1;
-            height: 80px;
+            height: 9vw;
+            max-height: 80px;
             aspect-ratio: 2 / 2;
             background-color: rgba(20, 20, 180, 0.796);
             border-radius: 50%;
-            margin: 10px;
+            margin: 6px;
             border: 1px solid rgb(79, 119, 128);
+        }
+
+        .control{
+            display: flex;
+            justify-content: space-between;
         }
 
         .reset {
             height: 50px;
             width: 200px;
-            margin: auto;
+            margin: 3px 20% 3px 38%;
             text-shadow: 0px 0px 20px black;
             font-size: 30px;
             background-color: #0a4344;
             border-radius: 9px;
             color: aliceblue;
+        }
+
+        .turn{
+            height: 30px;
+            width: 100px;
+            background-color: rgb(2, 110, 168);
+            padding: 6px 7px;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -72,16 +155,29 @@
     <header>
         <h1>Nim Game </h1>
     </header>
+    <div class="inter">
+        <div class="prev">goood jooop</div>
+        <div class="resolt">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <form id="frm">
+        <div class="input-div">
+            <div><label for="">Firet Player </label><input type="text" id="frist" value="Player1"></div>
+            <div><label for="">Secend Player </label><input type="text" id="secend" value="Player2"></div>
+        </div>
+    </form>
     <div class="contaner">
-        <div class="roow">
+        <div class="roow row1">
             <div class="circle"></div>
         </div>
-        <div class="roow">
+        <div class="roow row2">
             <div class="circle"></div>
             <div class="circle"></div>
             <div class="circle"></div>
         </div>
-        <div class="roow">
+        <div class="roow row3">
             <div class="circle"></div>
             <div class="circle"></div>
             <div class="circle"></div>
@@ -89,7 +185,7 @@
             <div class="circle"></div>
 
         </div>
-        <div class="roow">
+        <div class="roow row3">
             <div class="circle"></div>
             <div class="circle"></div>
             <div class="circle"></div>
@@ -99,44 +195,77 @@
             <div class="circle"></div>
 
         </div>
-        <div class="reset">
-            reset
+        <div class="control">
+            <div class="reset">
+                Start
+            </div>
+            <div class="turn">
+                chenge turn
+            </div>
         </div>
+
     </div>
 
 
     <script>
         let circles = document.getElementsByClassName("circle")
         let reset = document.getElementsByClassName("reset")[0]
+        let frm = document.getElementById("frm")
+        let rows = document.getElementsByClassName("roow")
+
+        let turn = "1"
 
         for (let i = 0; i < circles.length; i++) {
             circles[i].addEventListener("click", circleClicked)
-
-            if (circles[i].style.opacity != 0) {
-                circles[i].addEventListener('mouseover', function handleMouseOver() {
-                    circles[i].style.opacity = 0.7;
-                });
-
-                circles[i].addEventListener('mouseout', function handleMouseOut() {
-                    circles[i].style.opacity = 1;
-                });
-
-            }
-
+            circles[i].addEventListener("mouseover", circleMouseOver)
+            circles[i].addEventListener("mouseout", circleMouseOut)
         }
 
         function circleClicked(event) {
             circle1 = event.target
             circle1.style.opacity = 0
+            console.log(circle1.parentElement !== rows[1]); 
         }
+
+        function circleMouseOver(event) {
+            circle1 = event.target;
+            if (circle1.style.opacity != 0) {
+                circle1.style.opacity = 0.7
+            }
+        }
+
+        function circleMouseOut(event) {
+            circle1 = event.target;
+            if (circle1.style.opacity != 0) {
+                circle1.style.opacity = 1
+            }
+        }
+
+
+
 
         reset.addEventListener("click", resetClicked)
 
         function resetClicked(event) {
+            names = document.querySelectorAll(".resolt div")
+
+            inter = document.querySelector(".inter")
+            names[0].innerText = frm.elements[0].value
+            names[0].style.boxShadow = "0px 0px 30px #af0101"
+            names[0].style.borderColor = "#772b2b"
+            names[1].innerText = frm.elements[1].value
+            inter.style.display = "block"
+            frm.style.display = "none"
+
             for (let i = 0; i < circles.length; i++) {
+                circles[i].style.pointerEvents = "fill";
                 circles[i].style.opacity = 1
             }
+            reset = document.querySelector(".reset")
+            reset.innerText = "Restart"
+
         }
+
 
     </script>
 </body>
