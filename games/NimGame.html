@@ -53,7 +53,7 @@
             border-radius: 10px;
             border: 2px solid #004f8b;
             border-color: #3e803e;
-            box-shadow : 0px 0px 30px rgb(0, 180, 0);
+            box-shadow : 0px 0px 30px #00b400;
         }        
 
         .input-div {
@@ -213,7 +213,7 @@
         let frm = document.getElementById("frm")
         let rows = document.getElementsByClassName("roow")
 
-        let turn = "1"
+        let turn = 0
 
         for (let i = 0; i < circles.length; i++) {
             circles[i].addEventListener("click", circleClicked)
@@ -223,7 +223,13 @@
 
         function circleClicked(event) {
             circle1 = event.target
-            circle1.style.opacity = 0
+            circle1.style.opacity = 0.1
+            if(turn == 0){
+               circle1.style.backgroundColor = "#af0101" 
+            }else{
+                circle1.style.backgroundColor = "#00b400"
+            }
+            
             console.log(circle1.parentElement !== rows[1]); 
         }
 
@@ -248,6 +254,7 @@
 
         function resetClicked(event) {
             names = document.querySelectorAll(".resolt div")
+            prev = document.querySelector(".inter .prev")
 
             inter = document.querySelector(".inter")
             names[0].innerText = frm.elements[0].value
@@ -257,15 +264,25 @@
             inter.style.display = "block"
             frm.style.display = "none"
 
+            prev.innerText = ""
+
+
+
             for (let i = 0; i < circles.length; i++) {
                 circles[i].style.pointerEvents = "fill";
                 circles[i].style.opacity = 1
             }
             reset = document.querySelector(".reset")
             reset.innerText = "Restart"
-
         }
 
+        turnButtun = document.querySelector(".turn")
+        turnButtun.addEventListener("click",turnClicked)
+
+        function turnClicked(){
+            turn = 1
+
+        }
 
     </script>
 </body>
