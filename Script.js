@@ -1,52 +1,34 @@
 // JavaScript code
+(() => {
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.querySelector('nav ul');
+        const navItems = document.querySelectorAll('nav ul li');
 
-document.addEventListener('DOMContentLoaded', function () {
-    const menuIcon = document.getElementById('menu-icon');
-    const navLinks = document.querySelector('nav ul');
-    const navItems = document.querySelectorAll('nav ul li');
+        menuIcon.addEventListener('click', toggleMenu);
 
-    menuIcon.addEventListener('click', function () {
-        // Toggle the 'active' class to control visibility
-        navLinks.classList.toggle('active');
+        function toggleMenu() {
+            navLinks.classList.toggle('active');
+            navLinks.classList.contains('active')
+                ? navItems.forEach((item, index) => item.style.transitionDelay = `${index * 0.1}s`)
+                : navItems.forEach(item => item.style.transitionDelay = '0s');
+        }
 
-        if (navLinks.classList.contains('active')) {
-            // Apply animation delay to individual li elements
-            navItems.forEach((item, index) => {
-                item.style.transitionDelay = `${index * 0.1}s`; // Adjust the delay as needed
-            });
-        } else {
-            // Reset animation delay when closing the menu
-            navItems.forEach(item => {
-                item.style.transitionDelay = '0s';
-            });
+        const shoesCards = document.querySelectorAll('.shoes-card');
+
+        shoesCards.forEach(card => {
+            card.addEventListener('mouseenter', () => toggleCardLinks(card, true));
+            card.addEventListener('mouseleave', () => toggleCardLinks(card, false));
+        });
+
+        function toggleCardLinks(card, isActive) {
+            const cardLinks = card.querySelectorAll('a');
+            const cardImg = card.querySelector('img');
+            cardLinks.forEach(link => link.classList.toggle('active', isActive));
+            cardImg.classList.toggle('active', isActive);
         }
     });
-
-
-
-    const shoesCards = document.querySelectorAll('.shoes-card');
-
-    shoesCards.forEach(card => {
-        card.addEventListener('mouseenter', function () {
-            const cardLinks = card.querySelectorAll('a')
-            const cardImg = card.querySelector('img')
-            cardLinks.forEach(link => {
-                link.classList.add('active')
-            });
-            cardImg.classList.add('active')
-        });
-
-        card.addEventListener('mouseleave', function () {
-            const cardLinks = card.querySelectorAll('a');
-            const cardImg = card.querySelector('img')
-            cardLinks.forEach(link => {
-                link.classList.remove('active');
-            });
-            cardImg.classList.remove('active')
-        });
-    });
-
-});
+})();
 
 
 
