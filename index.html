@@ -56,32 +56,6 @@
         
         <h3>New Models</h3>
         <section class="shoes-container">
-            <span  class="shoes-card">
-                <a href="./public/mans-brooks.html"><img class="shoes-img" src="./image/Screenshot-removebg-preview.png" alt="shoes">
-                    <img class="watermark" src="./image/watermark .png" alt="woterMark fot shoo shop">
-                    <b>Mans Brooks</b> </a>
-            </span>
-            <span class="shoes-card">
-                <a href="./public/mens-asics.html"><img class="shoes-img" src="./image/Screenshot-removebg-preview (2).png" alt="shoes">
-                    <img class="watermark" src="./image/watermark .png" alt="woterMark fot shoo shop">
-                    
-                    <div><b>Mens Asics</b></div>
-                </a>
-            </span>
-            <span class="shoes-card">
-                <a href="./public/mens-hoka.html"><img class="shoes-img" src="./image/Screenshot-removebg-preview (1).png" alt="shoes">
-                    <img class="watermark" src="./image/watermark .png" alt="woterMark fot shoo shop">
-                    <br>
-                    <div><b>Men Hoke</b></div>
-                </a>
-            </span>
-            <span class="shoes-card">
-                <a href="./public/mens-running-shoes.html"><img class="shoes-img" src="./image/CG-120-G-FULLBLK-2.jpg-removebg-preview.png" alt="shoes">
-                        <img class="watermark" src="./image/watermark .png" alt="woterMark fot shoo shop">
-                        <br>
-                    <div><b>TYSON Pro</b></div>
-                </a>
-            </span>
         </section>
         <br>
 
@@ -120,58 +94,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuIcon = document.getElementById('menu-icon');
-            const navLinks = document.querySelector('nav ul');
-            const navItems = document.querySelectorAll('nav ul li');
 
-            menuIcon.addEventListener('click', function () {
-                // Toggle the 'active' class to control visibility
-                navLinks.classList.toggle('active');
-
-                if (navLinks.classList.contains('active')) {
-                    // Apply animation delay to individual li elements
-                    navItems.forEach((item, index) => {
-                        item.style.transitionDelay = `${index * 0.1}s`; // Adjust the delay as needed
-                    });
-                } else {
-                    // Reset animation delay when closing the menu
-                    navItems.forEach(item => {
-                        item.style.transitionDelay = '0s';
-                    });
-                }
-            });
-
-
-
-            const shoesCards = document.querySelectorAll('.shoes-card');
-
-            shoesCards.forEach(card => {
-                card.addEventListener('mouseenter', function () {
-                    const cardLinks = card.querySelectorAll('a')
-                    const cardImg = card.querySelector('img')
-                    cardLinks.forEach(link => {
-                        link.classList.add('active')
-                    });
-                    cardImg.classList.add('active')
-                });
-
-                card.addEventListener('mouseleave', function () {
-                    const cardLinks = card.querySelectorAll('a');
-                    const cardImg = card.querySelector('img')
-                    cardLinks.forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    cardImg.classList.remove('active')
-                });
-            });
-
-        });
-
-
-
-    </script>
+    <script src="Script.js" ></script>
 </body>
 
 </html>
