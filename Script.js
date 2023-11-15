@@ -1,4 +1,5 @@
 // JavaScript code
+
 (() => {
     document.addEventListener('DOMContentLoaded', () => {
         const menuIcon = document.getElementById('menu-icon');
